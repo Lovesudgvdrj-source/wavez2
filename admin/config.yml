@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "products"
+    label: "Бүтээгдэхүүн"
+    label_singular: "Бүтээгдэхүүн"
+    folder: "content/products"
+    create: true
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - {label: "ID", name: "id", widget: "string", hint: "wz-020 гэх мэт"}
+      - {label: "Нэр", name: "name", widget: "string"}
+      - {label: "Үнэ (₮)", name: "price", widget: "number", value_type: "int"}
+      - {label: "Хямдрал (₮)", name: "salePrice", widget: "number", value_type: "int", required: false, hint: "Хямдралгүй бол хоосон орхи"}
+      - {label: "Ангилал", name: "category", widget: "select", options: ["T-Shirts","Shirts","Hoodies","Sweatshirts","Jackets","Outerwear","Pants","Jeans","Shorts","Knitwear","Shoes","Accessories"]}
+      - {label: "Tag", name: "tags", widget: "list", required: false, hint: "new, trending, featured, sale"}
+      - {label: "Зураг 1", name: "image1", widget: "image"}
+      - {label: "Зураг 2", name: "image2", widget: "image", required: false}
+      - {label: "Зураг 3", name: "image3", widget: "image", required: false}
+      - {label: "Размерууд (таслалаар)", name: "sizes", widget: "string", hint: "S, M, L, XL, XXL"}
+      - {label: "Өнгө 1 нэр", name: "color1Name", widget: "string"}
+      - {label: "Өнгө 1 hex", name: "color1Hex", widget: "color"}
+      - {label: "Өнгө 2 нэр", name: "color2Name", widget: "string", required: false}
+      - {label: "Өнгө 2 hex", name: "color2Hex", widget: "color", required: false}
+      - {label: "Өнгө 3 нэр", name: "color3Name", widget: "string", required: false}
+      - {label: "Өнгө 3 hex", name: "color3Hex", widget: "color", required: false}
+      - {label: "Материал", name: "material", widget: "string"}
+      - {label: "Тайлбар", name: "description", widget: "text"}
+      - {label: "S нөөц", name: "stockS", widget: "number", value_type: "int", default: 0}
+      - {label: "M нөөц", name: "stockM", widget: "number", value_type: "int", default: 0}
+      - {label: "L нөөц", name: "stockL", widget: "number", value_type: "int", default: 0}
+      - {label: "XL нөөц", name: "stockXL", widget: "number", value_type: "int", default: 0}
+      - {label: "XXL нөөц", name: "stockXXL", widget: "number", value_type: "int", default: 0}
